@@ -2,32 +2,27 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Помогаю выстроить карьеру, найти работу и вырасти в доходе — карьерный консультант Виктория Мельчакова</title>
   <meta name="description" content="Индивидуальные карьерные консультации: поиск работы с ростом дохода, смена профессии, выход из карьерного тупика, подготовка к собеседованию и переговоры о повышении. 12 лет опыта в HR и руководстве командами." />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
       --color-bg-main: #FFFFFF;
-      --color-bg-section-alt: #F6F0FA;
+      --color-bg-section-alt: #F7F5FB;     /* светлый лавандово-серый фон секций */
+      --color-bg-soft: #F5F5F5;           /* мягкий светло-серый фон для нижних частей карточек */
       --color-bg-card: #FFFFFF;
-      --color-primary: #342D59;
-      --color-primary-soft: #5B2A86;
-      --color-accent-dark: #391D2C;
-      --color-accent-tag: #E8DEF8;
+      --color-primary: #342D59;            /* основной фиолетово-графитовый */
+      --color-primary-soft: #5B2A86;       /* мягкий фиолетовый для градиентов */
+      --color-accent-tag: #E8DEF8;         /* фон бейджей и тегов */
       --color-text-main: #222222;
       --color-text-muted: #555555;
       --color-border-soft: #E0E0E0;
       --color-footer-bg: #1C1A2A;
-      --gradient-card: linear-gradient(180deg, #F3F0F8 0%, #D3CADF 100%);
-      --gradient-header: linear-gradient(180deg, #5B2A86 0%, #342D59 100%);
-      --gradient-cta: linear-gradient(180deg, #342D59 0%, #241C3E 100%);
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.06);
-      --transition-fast: 0.25s ease;
+      --color-icon: #391D2C;              /* основной цвет линий иконок */
+      --color-hero-overlay: rgba(255,255,255,0.88);
     }
 
+    /* Базовая типографика и layout */
     * {
       box-sizing: border-box;
     }
@@ -38,9 +33,9 @@
 
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      background-color: var(--color-bg-main);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--color-text-main);
+      background-color: var(--color-bg-main);
       line-height: 1.5;
     }
 
@@ -51,12 +46,66 @@
     }
 
     a {
-      color: var(--color-primary);
+      color: inherit;
       text-decoration: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    p {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 16px;
+      font-weight: 700;
+      color: var(--color-text-main);
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 1199px) {
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 26px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 26px;
+      }
+      h2 {
+        font-size: 22px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 15px;
+      }
     }
 
     .container {
@@ -71,47 +120,25 @@
       }
     }
 
-    h1, h2, h3, h4 {
-      margin: 0;
-      color: var(--color-primary);
-      font-weight: 600;
-    }
-
-    p {
-      margin: 0;
-      color: var(--color-text-main);
-    }
-
     .section {
-      padding: 64px 0;
+      padding: 72px 0;
+      background-color: var(--color-bg-main);
     }
 
-    @media (max-width: 767.98px) {
-      .section {
-        padding: 48px 0;
-      }
+    .section-alt {
+      background-color: var(--color-bg-section-alt);
     }
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 24px;
-      font-size: 28px;
-      letter-spacing: 0.04em;
-    }
-
-    @media (min-width: 768px) {
-      .section-title {
-        font-size: 32px;
-      }
-    }
-
-    .section-subtitle {
+    .section-header {
       text-align: center;
       margin-bottom: 40px;
-      color: var(--color-text-muted);
-      font-size: 16px;
     }
 
+    .section-header p {
+      color: var(--color-text-muted);
+    }
+
+    /* Кнопки */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -122,218 +149,323 @@
       cursor: pointer;
       font-weight: 600;
       font-size: 15px;
-      letter-spacing: 0.04em;
       text-transform: uppercase;
-      transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), color var(--transition-fast);
+      letter-spacing: 0.06em;
       text-decoration: none;
+      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       white-space: nowrap;
     }
 
     .btn-primary {
       background-color: var(--color-primary);
       color: #FFFFFF;
-      box-shadow: 0 10px 24px rgba(52, 45, 89, 0.25);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
 
     .btn-primary:hover {
-      background-color: #241C3E;
+      background-color: #2a2448;
       transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(52, 45, 89, 0.3);
-      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
     }
 
-    /* HERO (header) */
+    .btn-outline-light {
+      background-color: transparent;
+      color: #FFFFFF;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
 
-    header.hero {
+    .btn-outline-light:hover {
+      background-color: rgba(255,255,255,0.08);
+    }
+
+    /* Шапка сайта */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--color-hero-overlay);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .site-header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .site-header-inner {
+        padding: 12px 24px;
+      }
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--color-primary);
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-list a {
+      color: var(--color-text-main);
+      text-decoration: none;
+      position: relative;
+    }
+
+    .nav-list a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primary);
+      transition: width 0.2s ease;
+    }
+
+    .nav-list a:hover::after {
+      width: 100%;
+    }
+
+    .header-cta {
+      margin-left: 16px;
+    }
+
+    .burger {
+      display: none;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: none;
+      padding: 0;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .burger span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-text-main);
+      border-radius: 999px;
+    }
+
+    @media (max-width: 991px) {
+      .main-nav {
+        position: fixed;
+        inset: 56px 0 auto 0;
+        background-color: rgba(255,255,255,0.96);
+        padding: 16px 24px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        transform: translateY(-120%);
+        transition: transform 0.2s ease;
+      }
+
+      .main-nav.open {
+        transform: translateY(0);
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .header-cta {
+        margin: 8px 0 0;
+      }
+
+      .burger {
+        display: flex;
+      }
+    }
+
+    /* Hero */
+    .hero {
       position: relative;
       background-image: url("https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/heroy_podlogka.png");
       background-size: cover;
       background-position: center;
-      color: var(--color-primary);
+      color: var(--color-text-main);
     }
 
-    header.hero::before {
+    .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.88);
+      background: var(--color-hero-overlay);
     }
 
     .hero-inner {
       position: relative;
-      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 16px 80px;
       display: flex;
       align-items: center;
-      padding: 80px 0 72px;
       gap: 40px;
     }
 
-    @media (max-width: 1023.98px) {
+    @media (min-width: 768px) {
       .hero-inner {
-        flex-direction: column;
-        text-align: center;
+        padding: 80px 24px 96px;
       }
     }
 
-    .hero-left {
-      flex: 1 1 55%;
-      max-width: 640px;
+    @media (max-width: 991px) {
+      .hero-inner {
+        flex-direction: column;
+      }
     }
 
-    .hero-right {
-      flex: 1 1 45%;
+    .hero-content {
+      flex: 1 1 55%;
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      margin-bottom: 16px;
+    }
+
+    .hero-title .accent {
+      color: var(--color-primary);
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-photo {
+      flex: 1 1 40%;
       display: flex;
       justify-content: center;
       align-items: flex-end;
     }
 
-    @media (max-width: 1023.98px) {
-      .hero-left,
-      .hero-right {
-        max-width: 100%;
-      }
-    }
-
-    .hero-eyebrow {
-      font-size: 14px;
-      text-transform: lowercase;
-      color: var(--color-text-muted);
-      margin-bottom: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    .hero-title {
-      font-size: 30px;
-      line-height: 1.3;
-      margin-bottom: 16px;
-      color: var(--color-text-main);
-    }
-
-    @media (min-width: 768px) {
-      .hero-title {
-        font-size: 36px;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .hero-title {
-        font-size: 40px;
-      }
-    }
-
-    .hero-title .accent {
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--color-text-muted);
-      margin-bottom: 28px;
-      max-width: 480px;
-    }
-
-    @media (max-width: 1023.98px) {
-      .hero-subtitle {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1023.98px) {
-      .hero-actions {
-        justify-content: center;
-      }
-    }
-
-    .hero-photo {
+    .hero-photo-inner {
       max-width: 360px;
-      border-radius: 32px;
-      box-shadow: var(--shadow-soft);
     }
 
-    @media (max-width: 767.98px) {
-      .hero-photo {
-        max-width: 70%;
+    .hero-photo-inner img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 767px) {
+      .hero-inner {
+        padding-top: 56px;
+      }
+      .hero-photo-inner {
+        max-width: 260px;
       }
     }
 
-    /* REQUESTS (карусель) */
+    /* Карточки и общие элементы */
+    .card {
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      padding: 24px;
+    }
 
-    .section-requests {
-      background-color: var(--color-bg-main);
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background-color: var(--color-accent-tag);
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    /* Блок 2. Самые популярные запросы */
+    .requests-section {
+      padding-top: 72px;
+      padding-bottom: 72px;
     }
 
     .requests-carousel {
-      position: relative;
-      margin-top: 32px;
-    }
-
-    .requests-carousel-track-wrapper {
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      padding-bottom: 4px;
-    }
-
-    .requests-carousel-track-wrapper::-webkit-scrollbar {
-      height: 0;
-    }
-
-    .requests-carousel-track {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .requests-carousel-window {
+      overflow: hidden;
+      flex: 1 1 auto;
+    }
+
+    .requests-track {
+      display: flex;
+      gap: 16px;
+      align-items: stretch;
     }
 
     .request-card {
-      flex: 0 0 100%;
-      padding: 24px 20px;
-      border-radius: var(--radius-md);
-      background-color: #FFFFFF;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #F4F4F4;
-      display: flex;
       flex-direction: column;
-      gap: 12px;
+      display: none; /* управление через JS */
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      padding: 20px 20px 18px;
     }
 
-    @media (min-width: 768px) {
-      .request-card {
-        flex: 0 0 50%;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .request-card {
-        flex: 0 0 33.3333%;
-      }
-    }
-
-    .request-card-header {
+    .request-top {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       color: var(--color-text-muted);
     }
 
-    .request-number {
-      font-weight: 600;
-    }
-
     .request-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
       background-color: var(--color-accent-tag);
       display: flex;
       align-items: center;
@@ -341,18 +473,169 @@
       flex-shrink: 0;
     }
 
-    .request-title {
-      font-size: 17px;
-      margin-top: 4px;
-      color: var(--color-primary);
+    .request-icon svg {
+      width: 26px;
+      height: 26px;
     }
 
-    .request-description {
-      font-size: 14px;
+    .request-body h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .request-body p {
       color: var(--color-text-muted);
+      font-size: 14px;
     }
 
-    .request-tag {
+    .request-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .request-cta {
+      color: var(--color-primary);
+      font-weight: 600;
+      cursor: default;
+    }
+
+    .carousel-btn {
+      border: none;
+      background-color: #FFFFFF;
+      border-radius: 999px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .carousel-btn:hover {
+      background-color: #F2F2F2;
+      transform: translateY(-1px);
+    }
+
+    .carousel-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--color-text-main);
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: none;
+      background-color: #D0CFE1;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .carousel-dot.active {
+      background-color: var(--color-primary);
+    }
+
+    .requests-section-cta {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    @media (max-width: 767px) {
+      .requests-carousel {
+        gap: 10px;
+      }
+
+      .carousel-btn {
+        width: 28px;
+        height: 28px;
+      }
+
+      .request-card {
+        padding: 18px 16px 16px;
+      }
+    }
+
+    /* Блок 3. Результаты клиентов */
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    @media (max-width: 991px) {
+      .cases-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 767px) {
+      .cases-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .case-card {
+      position: relative;
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+      padding: 32px 24px 20px;
+      overflow: hidden;
+    }
+
+    .case-initial-circle {
+      position: absolute;
+      top: -20px;
+      left: 24px;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-image: linear-gradient(135deg, var(--color-primary-soft), var(--color-primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 24px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    .case-content {
+      margin-top: 28px;
+    }
+
+    .case-name {
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .case-block-label {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .case-text {
+      margin-bottom: 10px;
+      color: var(--color-text-muted);
+      font-size: 14px;
+    }
+
+    .case-tag {
       display: inline-flex;
       align-items: center;
       padding: 4px 10px;
@@ -360,1798 +643,1971 @@
       background-color: var(--color-accent-tag);
       color: var(--color-primary);
       font-size: 12px;
-      margin-top: 4px;
-    }
-
-    .request-cta {
-      font-size: 13px;
-      color: var(--color-primary);
-      margin-top: 8px;
       font-weight: 500;
+      margin-top: 6px;
     }
 
-    .requests-carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid var(--color-border-soft);
-      background-color: #FFFFFF;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-      transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    }
-
-    .requests-carousel-arrow span {
-      font-size: 20px;
-      line-height: 1;
-      color: var(--color-primary);
-    }
-
-    .requests-carousel-arrow:hover {
-      background-color: #F8F5FF;
-      transform: translateY(-50%) translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-    }
-
-    .requests-carousel-arrow.prev {
-      left: -8px;
-    }
-
-    .requests-carousel-arrow.next {
-      right: -8px;
-    }
-
-    @media (max-width: 767.98px) {
-      .requests-carousel-arrow.prev {
-        left: 0;
-      }
-
-      .requests-carousel-arrow.next {
-        right: 0;
-      }
-    }
-
-    .section-requests-cta {
-      margin-top: 32px;
-      text-align: center;
-    }
-
-    /* RESULTS */
-
-    .section-results {
-      background-color: var(--color-bg-section-alt);
-    }
-
-    .results-subtitle {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 40px;
-      color: var(--color-text-muted);
-      font-size: 16px;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-
-    @media (min-width: 768px) {
-      .results-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1200px) {
-      .results-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .result-card {
-      position: relative;
-      background-color: var(--color-bg-card);
-      border-radius: var(--radius-lg);
-      padding: 48px 24px 24px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .result-avatar {
-      position: absolute;
-      top: -28px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #5B2A86 0%, #342D59 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #FFFFFF;
-      font-weight: 700;
-      font-size: 20px;
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
-    }
-
-    .result-name {
-      text-align: center;
-      font-weight: 600;
-      margin-bottom: 8px;
-      margin-top: 12px;
-    }
-
-    .result-role {
-      text-align: center;
-      font-size: 14px;
-      color: var(--color-text-muted);
-      margin-bottom: 16px;
-    }
-
-    .result-before,
-    .result-after {
-      font-size: 14px;
-      color: var(--color-text-main);
-      margin-bottom: 8px;
-    }
-
-    .result-before strong,
-    .result-after strong {
-      font-weight: 600;
-    }
-
-    .result-tag {
-      display: inline-flex;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background-color: var(--color-accent-tag);
-      color: var(--color-primary);
-      font-size: 12px;
-      margin-top: 12px;
-    }
-
-    /* BENEFITS */
-
-    .section-benefits {
-      background-color: var(--color-bg-main);
-    }
-
+    /* Блок 4. Что вы получите */
     .benefits-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 991px) {
       .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (min-width: 1024px) {
+    @media (max-width: 767px) {
       .benefits-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .benefit-card {
-      border-radius: var(--radius-lg);
-      background-color: #F5F5F5;
+      position: relative;
+      border-radius: 24px;
+      box-shadow: 0 12px 26px rgba(0,0,0,0.08);
       overflow: hidden;
+      background-color: var(--color-bg-card);
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-soft);
     }
 
-    .benefit-card-header {
+    .benefit-image-wrapper {
       position: relative;
-      background: var(--gradient-header);
+      padding-top: 64px;
+      background-image: linear-gradient(180deg, #5B2A86 0%, #342D59 100%);
       color: #FFFFFF;
-      padding: 40px 16px 20px;
       text-align: center;
+      padding-bottom: 18px;
     }
 
     .benefit-image {
       position: absolute;
-      top: -32px;
+      top: -36px;
       left: 50%;
       transform: translateX(-50%);
-      width: 72px;
-      height: 72px;
+      width: 96px;
+      height: 96px;
       border-radius: 50%;
-      border: 4px solid #FFFFFF;
       overflow: hidden;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
       background-color: #FFFFFF;
     }
 
-    .benefit-title {
-      margin-top: 24px;
-      font-size: 16px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+    .benefit-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .benefit-number {
-      position: absolute;
-      right: 16px;
-      top: 16px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 600;
+    .benefit-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 40px;
     }
 
     .benefit-body {
-      padding: 20px 20px 24px;
+      background-color: var(--color-bg-soft);
+      padding: 40px 20px 22px;
+      position: relative;
+    }
+
+    .benefit-number-badge {
+      position: absolute;
+      top: -18px;
+      left: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #FFFFFF;
+      border: 1px solid var(--color-border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--color-primary);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .benefit-body p {
+      margin-bottom: 0;
       font-size: 14px;
       color: var(--color-text-main);
     }
 
-    /* PROCESS */
-
-    .section-process {
-      background-color: var(--color-bg-section-alt);
-    }
-
-    .process-grid {
+    /* Блок 5. Как проходит консультация */
+    .process-steps {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
-      margin-top: 32px;
+      margin-bottom: 32px;
     }
 
-    @media (min-width: 768px) {
-      .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 991px) {
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (min-width: 1200px) {
-      .process-grid {
-        grid-template-columns: repeat(4, 1fr);
+    @media (max-width: 767px) {
+      .process-steps {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .process-card {
-      background: var(--gradient-card);
-      border-radius: var(--radius-md);
-      padding: 20px 18px 22px;
+      position: relative;
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
       gap: 10px;
-      box-shadow: var(--shadow-soft);
     }
 
     .process-icon {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      background-color: var(--color-accent-tag);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
-    }
-
-    .process-title {
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-primary);
-    }
-
-    .process-text {
-      font-size: 14px;
-      color: var(--color-text-main);
-    }
-
-    .process-number {
-      margin-top: 8px;
-      align-self: flex-start;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(52, 45, 89, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--color-primary);
-      font-weight: 600;
-      background-color: rgba(255, 255, 255, 0.7);
-    }
-
-    .process-support {
-      margin-top: 40px;
-      text-align: center;
-      max-width: 620px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .process-support-title {
-      font-weight: 600;
       margin-bottom: 8px;
     }
 
-    .process-support-text {
+    .process-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-icon);
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .process-card h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .process-card p {
       font-size: 14px;
       color: var(--color-text-muted);
     }
 
-    /* ABOUT */
-
-    .section-about {
-      background-color: var(--color-bg-main);
-    }
-
-    .about-inner {
+    .process-number {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border-soft);
       display: flex;
-      flex-direction: column;
-      gap: 32px;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-primary);
+      background-color: #FFFFFF;
     }
 
-    @media (min-width: 1024px) {
-      .about-inner {
-        flex-direction: row;
-        align-items: center;
+    .process-support {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      margin-top: 8px;
+    }
+
+    .process-support h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .process-support p {
+      font-size: 15px;
+      color: var(--color-text-muted);
+    }
+
+    /* Блок 6. Обо мне */
+    .about-section-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 991px) {
+      .about-section-inner {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
-    .about-text {
-      flex: 1 1 55%;
-    }
-
-    .about-photo-wrap {
-      flex: 1 1 45%;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    @media (max-width: 1023.98px) {
-      .about-photo-wrap {
-        justify-content: center;
-      }
-    }
-
-    .about-badge {
+    .about-label-row {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background-color: var(--color-accent-tag);
-      color: var(--color-primary);
-      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .about-label-marker {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      background-color: var(--color-primary);
+    }
+
+    .about-label-text {
+      font-size: 13px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-    }
-
-    .about-badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--color-accent-dark);
-    }
-
-    .about-title {
-      font-size: 26px;
-      margin-bottom: 16px;
+      color: var(--color-text-muted);
     }
 
     .about-facts {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px 24px;
-      margin-bottom: 16px;
+      gap: 24px;
+      margin: 24px 0;
     }
 
     .about-fact {
-      min-width: 90px;
+      min-width: 120px;
     }
 
     .about-fact-number {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 700;
       color: var(--color-primary);
+      margin-bottom: 4px;
     }
 
-    .about-fact-text {
+    .about-fact-label {
       font-size: 14px;
       color: var(--color-text-muted);
     }
 
-    .about-description {
+    .about-extra-text {
       font-size: 15px;
       color: var(--color-text-main);
-      max-width: 520px;
     }
 
-    .about-photo {
-      max-width: 360px;
-      border-radius: 32px;
-      box-shadow: var(--shadow-soft);
+    .about-photo-wrapper {
+      display: flex;
+      justify-content: flex-end;
     }
 
-    @media (max-width: 767.98px) {
-      .about-photo {
-        max-width: 75%;
+    .about-photo-inner {
+      max-width: 380px;
+    }
+
+    @media (max-width: 991px) {
+      .about-photo-wrapper {
+        justify-content: center;
+      }
+
+      .about-photo-inner {
+        max-width: 280px;
       }
     }
 
-    /* TRUST */
-
-    .section-trust {
-      background-color: var(--color-bg-section-alt);
-    }
-
+    /* Блок 7. Почему доверять */
     .trust-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
-      margin-top: 32px;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 991px) {
       .trust-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (min-width: 1200px) {
+    @media (max-width: 767px) {
       .trust-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .trust-card {
-      background: var(--gradient-card);
-      border-radius: var(--radius-md);
-      padding: 18px 18px 20px;
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      padding: 22px 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
     }
 
     .trust-icon {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      background-color: var(--color-accent-tag);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 4px;
+      margin-bottom: 10px;
     }
 
-    .trust-title {
-      font-size: 13px;
-      letter-spacing: 0.08em;
+    .trust-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-icon);
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .trust-card h3 {
+      font-size: 15px;
       text-transform: uppercase;
-      color: var(--color-primary);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
     }
 
-    .trust-text {
+    .trust-card p {
       font-size: 14px;
-      color: var(--color-text-main);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
     }
 
-    /* SERVICES */
-
-    .section-services {
-      background-color: var(--color-bg-main);
-    }
-
+    /* Блок 8. Услуги */
     .services-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
-      margin-top: 32px;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 991px) {
       .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (min-width: 1200px) {
+    @media (max-width: 767px) {
       .services-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .service-card {
-      background: var(--gradient-card);
-      border-radius: var(--radius-md);
-      padding: 20px 18px 22px;
-      box-shadow: var(--shadow-soft);
+      background-color: var(--color-bg-card);
+      border-radius: 24px;
+      padding: 22px 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
     .service-icon {
       width: 40px;
       height: 40px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 999px;
+      background-color: var(--color-accent-tag);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 4px;
     }
 
-    .service-title {
-      font-size: 13px;
-      letter-spacing: 0.08em;
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--color-icon);
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .service-card h3 {
+      font-size: 15px;
       text-transform: uppercase;
-      color: var(--color-primary);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
     }
 
-    .service-text {
+    .service-card p {
       font-size: 14px;
-      color: var(--color-text-main);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
     }
 
-    /* CTA */
-
-    .section-cta {
-      background: var(--gradient-cta);
+    /* Блок 9. CTA */
+    .cta-section {
+      background-image: linear-gradient(180deg, #342D59 0%, var(--color-footer-bg) 100%);
       color: #FFFFFF;
     }
 
     .cta-inner {
-      text-align: center;
-      max-width: 720px;
+      max-width: 900px;
       margin: 0 auto;
+      text-align: center;
     }
 
-    .cta-title {
+    .cta-inner h2 {
       color: #FFFFFF;
-      font-size: 26px;
-      margin-bottom: 16px;
     }
 
-    .cta-text {
-      font-size: 15px;
-      margin-bottom: 24px;
-      color: #F3F0F8;
+    .cta-inner p {
+      color: #E5E5F2;
     }
 
-    .cta-params {
+    .cta-facts {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      margin-bottom: 24px;
-      font-size: 14px;
-      color: #E8DEF8;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 24px 0 24px;
     }
 
-    @media (min-width: 600px) {
-      .cta-params {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 991px) {
+      .cta-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    .cta-note {
-      font-size: 13px;
-      color: #E0E0E0;
-      margin-bottom: 24px;
+    @media (max-width: 767px) {
+      .cta-facts {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
-    .phone-wrapper {
-      display: inline-flex;
-      flex-direction: column;
+    .cta-fact {
+      background-color: rgba(0,0,0,0.12);
+      border-radius: 20px;
+      padding: 14px 12px;
+      display: flex;
       align-items: center;
-      position: relative;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .cta-phone-link {
-      font-size: 20px;
-      font-weight: 700;
-      color: #FFFFFF;
-      text-decoration: none;
-      letter-spacing: 0.04em;
+    .cta-fact-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background-color: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .cta-phone-link:hover {
-      text-decoration: underline;
+    .cta-fact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: #FFFFFF;
+      stroke-width: 1.8;
+      fill: none;
     }
 
-    .phone-tooltip {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #FFFFFF;
-      color: var(--color-text-main);
-      padding: 8px 12px;
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-      font-size: 12px;
-      max-width: 260px;
+    .cta-fact-text {
+      font-size: 14px;
       text-align: left;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
-      z-index: 10;
     }
 
-    .phone-tooltip::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: #FFFFFF transparent transparent transparent;
+    .cta-phone {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 16px 0 20px;
     }
 
-    @media (min-width: 1024px) {
-      .phone-wrapper:hover .phone-tooltip,
-      .phone-wrapper:focus-within .phone-tooltip {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%) translateY(-4px);
-      }
+    .cta-phone a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
     }
 
-    @media (max-width: 1023.98px) {
-      .phone-tooltip {
-        display: none;
-      }
-    }
-
-    .cta-phone-btn {
-      margin-top: 4px;
-    }
-
-    /* FAQ */
-
-    .section-faq {
-      background-color: var(--color-bg-main);
-    }
-
+    /* Блок 10. FAQ */
     .faq-list {
       max-width: 800px;
-      margin: 32px auto 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      margin: 0 auto;
+      border-radius: 24px;
+      border: 1px solid var(--color-border-soft);
+      overflow: hidden;
+      background-color: #FFFFFF;
     }
 
-    .faq-item {
-      border-radius: 12px;
-      border: 1px solid var(--color-border-soft);
-      background-color: #FFFFFF;
-      overflow: hidden;
+    .faq-item + .faq-item {
+      border-top: 1px solid var(--color-border-soft);
     }
 
     .faq-question {
       width: 100%;
-      padding: 14px 16px;
+      text-align: left;
+      background-color: #FFFFFF;
+      border: none;
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      background: none;
-      border: none;
       cursor: pointer;
-      font: inherit;
-      color: var(--color-text-main);
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .faq-question-text {
-      flex: 1;
-      text-align: left;
-      font-size: 15px;
+      margin-right: 12px;
     }
 
-    .faq-question-icon {
-      margin-left: 12px;
-      font-size: 18px;
-      color: var(--color-primary);
-      transition: transform 0.25s ease;
+    .faq-toggle-icon {
+      width: 18px;
+      height: 18px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .faq-toggle-icon::before,
+    .faq-toggle-icon::after {
+      content: "";
+      position: absolute;
+      background-color: var(--color-text-main);
+      border-radius: 999px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .faq-toggle-icon::before {
+      width: 100%;
+      height: 2px;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+
+    .faq-toggle-icon::after {
+      width: 2px;
+      height: 100%;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .faq-item.open .faq-toggle-icon::after {
+      opacity: 0;
+      transform: translateX(-50%) scaleY(0.2);
     }
 
     .faq-answer {
-      padding: 0 16px;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease;
-      border-top: 1px solid var(--color-border-soft);
+      transition: max-height 0.25s ease;
+      padding: 0 20px;
     }
 
     .faq-answer-inner {
-      padding: 12px 0 14px;
+      padding: 0 0 16px;
       font-size: 14px;
       color: var(--color-text-muted);
     }
 
-    .faq-item.is-open .faq-answer {
-      /* max-height управляется через JS, но класс остаётся для иконки */
+    .faq-item.open .faq-answer {
+      padding-top: 0;
     }
 
-    .faq-item.is-open .faq-question-icon {
-      transform: rotate(45deg);
-    }
-
-    /* FOOTER */
-
-    .footer {
+    /* Футер */
+    .site-footer {
       background-color: var(--color-footer-bg);
-      color: #F5F5F5;
-      padding: 40px 0 16px;
-      font-size: 14px;
+      color: #FFFFFF;
+      padding-top: 40px;
     }
 
     .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-      align-items: flex-start;
+      padding-bottom: 24px;
     }
 
-    @media (max-width: 767.98px) {
-      .footer-top {
-        grid-template-columns: 1fr;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: 32px;
+    }
+
+    @media (max-width: 991px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    .footer-brand-title {
-      font-weight: 600;
+    @media (max-width: 767px) {
+      .footer-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .footer-title {
+      font-weight: 700;
+      font-size: 16px;
       margin-bottom: 8px;
     }
 
-    .footer-brand-text {
-      color: #D0D0E0;
-      font-size: 13px;
-    }
-
-    .footer-phone-label {
-      font-size: 13px;
-      color: #CCCCDD;
+    .footer-brand-title {
+      font-weight: 700;
+      font-size: 16px;
       margin-bottom: 4px;
     }
 
-    .footer-phone-link {
+    .footer-brand-text {
+      font-size: 14px;
+      color: #D0D0E6;
+    }
+
+    .footer-nav-list,
+    .footer-docs-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-nav-list li + li,
+    .footer-docs-list li + li {
+      margin-top: 6px;
+    }
+
+    .footer-nav-list a,
+    .footer-docs-list a {
+      color: #E0E0F0;
+    }
+
+    .footer-nav-list a:hover,
+    .footer-docs-list a:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .footer-contact-phone {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .footer-contact-phone a {
       color: #FFFFFF;
-      font-weight: 600;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .footer-phone-link:hover {
       text-decoration: underline;
-    }
-
-    .footer-docs {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .footer-docs a {
-      color: #E0E0F5;
-      font-size: 13px;
-    }
-
-    .footer-docs a:hover {
-      text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 14px 0;
       text-align: center;
-      font-size: 12px;
-      color: #CCCCCC;
+      font-size: 13px;
+      color: #C4C4DD;
+      margin-top: 8px;
+    }
+
+    /* Модалка */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background-color: #FFFFFF;
+      border-radius: 16px;
+      padding: 24px 24px 20px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.28);
+      position: relative;
+    }
+
+    .modal h2 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .modal p {
+      font-size: 15px;
+      color: var(--color-text-main);
+    }
+
+    .modal p a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: none;
+      background-color: #F0F0F5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      padding: 0;
+    }
+
+    .modal-actions {
+      margin-top: 16px;
+      text-align: right;
+    }
+
+    .modal-actions .btn {
+      font-size: 13px;
+      padding: 8px 18px;
+      text-transform: none;
+      letter-spacing: 0.03em;
+      box-shadow: none;
+    }
+
+    @media (max-width: 480px) {
+      .modal {
+        padding: 20px 18px 16px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-eyebrow">карьерный консультант</div>
-          <h1 class="hero-title">
-            Помогаю выстроить карьеру,<br />
-            <span class="accent">найти работу и выйти на новый уровень дохода</span>
-          </h1>
-          <p class="hero-subtitle">
-            От подготовки к собеседованию до плана развития на текущем месте.
-          </p>
-          <div class="hero-actions">
-            <a href="#cta-section" class="btn btn-primary js-scroll-to-cta">Записаться</a>
-          </div>
-        </div>
-        <div class="hero-right">
-          <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/dlya_heroy_Vika.png"
-               alt="Карьерный консультант Виктория Мельчакова"
-               class="hero-photo" />
-        </div>
+  <!-- Шапка -->
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="logo-text">
+        Карьерный эксперт Виктория Мельчакова
       </div>
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" aria-label="Основная навигация">
+        <ul class="nav-list">
+          <li><a href="#requests">Запросы</a></li>
+          <li><a href="#results">Результаты</a></li>
+          <li><a href="#benefits">Что получите</a></li>
+          <li><a href="#process">Как проходит</a></li>
+          <li><a href="#about">Обо мне</a></li>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+        <div class="header-cta">
+          <a href="tel:+79215925158" class="btn btn-primary js-consultation-btn">Записаться</a>
+        </div>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- БЛОК 2. САМЫЕ ПОПУЛЯРНЫЕ ЗАПРОСЫ -->
-    <section id="requests" class="section section-requests">
+
+    <!-- Блок 1. Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-tagline">карьерный консультант</div>
+          <h1 class="hero-title" id="hero-title">
+            Помогаю выстроить карьеру,<br />
+            <span class="accent">найти работу и выйти на новый уровень дохода</span>
+          </h1>
+          <p class="hero-subtitle">
+            От подготовки к собеседованию до плана развития на текущем месте
+          </p>
+          <div class="hero-actions">
+            <a href="tel:+79215925158" class="btn btn-primary js-consultation-btn">ЗАПИСАТЬСЯ</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <div class="hero-photo-inner">
+            <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/dlya_heroy_Vika.png"
+                 alt="Карьерный консультант Виктория Мельчакова" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок 2. Самые популярные запросы -->
+    <section id="requests" class="section section-alt requests-section" aria-labelledby="requests-title">
       <div class="container">
-        <h2 class="section-title">САМЫЕ ПОПУЛЯРНЫЕ ЗАПРОСЫ</h2>
-        <p class="section-subtitle">на карьерную консультацию</p>
+        <div class="section-header">
+          <h2 id="requests-title">САМЫЕ ПОПУЛЯРНЫЕ ЗАПРОСЫ</h2>
+          <p>на карьерную консультацию</p>
+        </div>
 
         <div class="requests-carousel">
-          <button class="requests-carousel-arrow prev" type="button" aria-label="Предыдущие запросы">
-            <span>‹</span>
+          <button class="carousel-btn" type="button" aria-label="Предыдущие запросы" id="requests-prev">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="14 6 8 12 14 18" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            </svg>
           </button>
-          <div class="requests-carousel-track-wrapper">
-            <div class="requests-carousel-track">
-              <!-- Запрос 1 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 1</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 5H20V15H8L4 19V5Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Переговоры о повышении и новой роли</h3>
-                <p class="request-description">
-                  Разбираем ваши задачи, готовим аргументацию, позицию и сценарий разговора с руководителем,
-                  чтобы обсуждать повышение спокойно и уверенно.
-                </p>
-                <div class="request-tag">Для руководителей и специалистов</div>
-                <div class="request-cta">Разберём ваш кейс →</div>
-              </article>
-
-              <!-- Запрос 2 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 2</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="12" cy="12" r="8"
-                              stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M12 8V12L14 14"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Возвращение на рынок после перерыва</h3>
-                <p class="request-description">
-                  Декрет, релокация или пауза в карьере — собираем опыт в цельную историю, обновляем резюме и профиль,
-                  выстраиваем стратегию выхода на рынок без ощущения, что «я выпал(а) из профессии».
-                </p>
-                <div class="request-tag">Для тех, кто возвращается в профессию</div>
-                <div class="request-cta">Соберём план выхода →</div>
-              </article>
-
-              <!-- Запрос 3 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 3</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 3L4 20L12 16L20 20L12 3Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Переезд и смена рынка / города</h3>
-                <p class="request-description">
-                  Планируете переезд и хотите сохранить уровень дохода и позицию. Подбираем стратегию поиска работы,
-                  адаптируем позиционирование и резюме под новый рынок, определяем, где и как себя презентовать.
-                </p>
-                <div class="request-tag">Для релокации</div>
-                <div class="request-cta">Подберём стратегию поиска →</div>
-              </article>
-
-              <!-- Запрос 4 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 4</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 10H18L17 19H7L6 10Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M9 10V7C9 5.343 10.343 4 12 4C13.657 4 15 5.343 15 7V10"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Поиск новой работы с ростом дохода</h3>
-                <p class="request-description">
-                  Хотите выйти на следующий уровень по деньгам и задачам, но отклики не дают нужных результатов.
-                  Разберём позиционирование, резюме и стратегию поиска, чтобы получать офферы, а не просто приглашения на интервью.
-                </p>
-                <div class="request-tag">Для тех, кто хочет расти</div>
-                <div class="request-cta">Составим стратегию поиска →</div>
-              </article>
-
-              <!-- Запрос 5 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 5</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 4H17V9H14L10 15H7V4Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M17 20H7V15H10L14 9H17V20Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Смена профессии или сферы</h3>
-                <p class="request-description">
-                  Чувствуете, что в текущей сфере вы упёрлись в потолок. Помогу переложить ваш опыт в новую область,
-                  определить стартовую позицию, собрать план перехода и дорожную карту по шагам.
-                </p>
-                <div class="request-tag">Для смены сферы</div>
-                <div class="request-cta">Построим план перехода →</div>
-              </article>
-
-              <!-- Запрос 6 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 6</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 19L10 5L14 14L19 9L15 19H5Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Карьерный тупик</h3>
-                <p class="request-description">
-                  Работаете много, а ощущение, что стоите на месте: нет ясных перспектив, роста дохода и следующей ступени в карьере.
-                  На консультации фиксируем точку А и точку Б, определяем варианты и выбираем реалистичный маршрут.
-                </p>
-                <div class="request-tag">Для тех, кто «застрял»</div>
-                <div class="request-cta">Найдём путь развития →</div>
-              </article>
-
-              <!-- Запрос 7 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 7</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="12" cy="12" r="8"
-                              stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M12 8V13L15 15"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Подготовка к важному собеседованию</h3>
-                <p class="request-description">
-                  Впереди интервью мечты или сложная оценочная сессия. Разберём вакансию и компанию, подготовим аргументацию,
-                  отработаем сложные вопросы и самопрезентацию, чтобы чувствовать себя уверенно.
-                </p>
-                <div class="request-tag">Для ответственных кандидатов</div>
-                <div class="request-cta">Подготовим к собеседованию →</div>
-              </article>
-
-              <!-- Запрос 8 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 8</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 4L14 9L19 9.5L15.5 13L16.5 18L12 15.5L7.5 18L8.5 13L5 9.5L10 9L12 4Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Развитие личного бренда</h3>
-                <p class="request-description">
-                  Хотите, чтобы вас находили рекрутеры и предлагали интересные возможности. Помогу разработать стратегию личного бренда,
-                  оформить профили в соцсетях и создать контент-план для привлечения карьерных предложений.
-                </p>
-                <div class="request-tag">Для амбициозных специалистов</div>
-                <div class="request-cta">Разработаем личный бренд →</div>
-              </article>
-
-              <!-- Запрос 9 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 9</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 18V6H10L12 9H20V18H4Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M8 13H12"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Управление командой и лидерство</h3>
-                <p class="request-description">
-                  Стали руководителем и столкнулись с новыми вызовами: мотивация команды, делегирование, проведение встреч
-                  и развитие лидерских качеств. Разберём ваши кейсы и найдём решения для эффективного управления.
-                </p>
-                <div class="request-tag">Для новых руководителей</div>
-                <div class="request-cta">Прокачаем лидерские навыки →</div>
-              </article>
-
-              <!-- Запрос 10 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 10</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <rect x="5" y="4" width="14" height="16" rx="2"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M8 8H16M8 12H14M8 16H12"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Оптимизация резюме и профиля</h3>
-                <p class="request-description">
-                  Ваше резюме не конвертирует в отклики или собеседования? Упакуем опыт в сильную структуру, настроим профиль,
-                  добавим метрики и результаты, чтобы HR и нанимающие менеджеры сразу видели ценность.
-                </p>
-                <div class="request-tag">Для усиления резюме</div>
-                <div class="request-cta">Улучшим резюме →</div>
-              </article>
-
-              <!-- Запрос 11 -->
-              <article class="request-card">
-                <div class="request-card-header">
-                  <div class="request-number">Запрос 11</div>
-                  <div class="request-icon" aria-hidden="true">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                      <path d="M5 10L12 5L19 10V18H5V10Z"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M9 18V13H15V18"
-                            stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                <h3 class="request-title">Переезд и работа в другой стране</h3>
-                <p class="request-description">
-                  Если планируете переезд и хотите сохранить уровень дохода, разберём, как адаптировать резюме под международный рынок,
-                  где искать вакансии и как презентовать свой опыт зарубежным рекрутёрам.
-                </p>
-                <div class="request-tag">Для международного рынка</div>
-                <div class="request-cta">Подготовим стратегию →</div>
-              </article>
-            </div>
+          <div class="requests-carousel-window">
+            <div class="requests-track" id="requests-track" aria-live="polite"></div>
           </div>
-          <button class="requests-carousel-arrow next" type="button" aria-label="Следующие запросы">
-            <span>›</span>
+          <button class="carousel-btn" type="button" aria-label="Следующие запросы" id="requests-next">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <polyline points="10 6 16 12 10 18" fill="none" stroke-linecap="round" stroke-linejoin="round"></polyline>
+            </svg>
           </button>
         </div>
+        <div class="carousel-dots" id="requests-dots" aria-hidden="true"></div>
 
-        <div class="section-requests-cta">
-          <a href="#cta-section" class="btn btn-primary js-scroll-to-cta">Записаться</a>
+        <div class="requests-section-cta">
+          <a href="tel:+79215925158" class="btn btn-primary js-consultation-btn">ЗАПИСАТЬСЯ</a>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 3. РЕЗУЛЬТАТЫ КЛИЕНТОВ -->
-    <section id="results" class="section section-results">
+    <!-- Блок 3. Результаты клиентов -->
+    <section id="results" class="section section-alt" aria-labelledby="results-title">
       <div class="container">
-        <h2 class="section-title">РЕЗУЛЬТАТЫ КЛИЕНТОВ, КОТОРЫМИ ГОРЖУСЬ</h2>
-        <p class="results-subtitle">
-          Цифры ниже — примеры того, каких изменений удаётся добиться за счёт настройки стратегии, резюме и переговоров.
-        </p>
-
-        <div class="results-grid">
-          <!-- Анна -->
-          <article class="result-card">
-            <div class="result-avatar">А</div>
-            <div class="result-name">Анна</div>
-            <div class="result-role">руководитель отдела продаж</div>
-            <p class="result-before">
-              <strong>До:</strong> 2 года на одной позиции, без предложений по рынку.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> оффер руководителя направления в другой компании, +35% к доходу за 4 месяца.
-            </p>
-            <div class="result-tag">Запрос: повышение</div>
-          </article>
-
-          <!-- Игорь -->
-          <article class="result-card">
-            <div class="result-avatar">И</div>
-            <div class="result-name">Игорь</div>
-            <div class="result-role">ведущий инженер</div>
-            <p class="result-before">
-              <strong>До:</strong> 8 лет в одной компании, узкий профиль, страх менять сферу.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> переход в международный проектный офис, повышение грейда и рост дохода на 40%.
-            </p>
-            <div class="result-tag">Запрос: смена компании</div>
-          </article>
-
-          <!-- Мария -->
-          <article class="result-card">
-            <div class="result-avatar">М</div>
-            <div class="result-name">Мария</div>
-            <div class="result-role">маркетолог после декрета</div>
-            <p class="result-before">
-              <strong>До:</strong> перерыв 3 года, нерелевантное резюме, откликов почти нет.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> 3 оффера за месяц, выход в продуктовую компанию с гибридным форматом работы.
-            </p>
-            <div class="result-tag">Запрос: возврат на рынок</div>
-          </article>
-
-          <!-- Елена -->
-          <article class="result-card">
-            <div class="result-avatar">Е</div>
-            <div class="result-name">Елена</div>
-            <div class="result-role">специалист по закупкам</div>
-            <p class="result-before">
-              <strong>До:</strong> ощущение полного тупика, разные варианты резюме не работали, откликов почти не было.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> за одну консультацию разобрали опыт, сформулировали сильные стороны и создали понятный план поиска.
-              Выход на новую работу с зарплатой выше прежней за 1 месяц.
-            </p>
-            <div class="result-tag">Запрос: карьерный тупик</div>
-          </article>
-
-          <!-- Дарья -->
-          <article class="result-card">
-            <div class="result-avatar">Д</div>
-            <div class="result-name">Дарья</div>
-            <div class="result-role">менеджер проектов</div>
-            <p class="result-before">
-              <strong>До:</strong> больше года хотела сменить сферу, казалось, что придётся начинать с нуля.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> помогли перенести навыки в новую область, упаковать опыт и определить реальные позиции для откликов.
-              Работа в новой сфере с более мягким переходом, чем ожидалось.
-            </p>
-            <div class="result-tag">Запрос: смена профессии или сферы</div>
-          </article>
-
-          <!-- Сергей -->
-          <article class="result-card">
-            <div class="result-avatar">С</div>
-            <div class="result-name">Сергей</div>
-            <div class="result-role">руководитель отдела</div>
-            <p class="result-before">
-              <strong>До:</strong> не понимал, как дальше развиваться: расти внутри компании или искать новые возможности.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> разложили цели и риски, посчитали варианты по деньгам и этапам. Согласовал внутри компании новую роль и повышение.
-            </p>
-            <div class="result-tag">Запрос: повышение</div>
-          </article>
-
-          <!-- Александр -->
-          <article class="result-card">
-            <div class="result-avatar">А</div>
-            <div class="result-name">Александр</div>
-            <div class="result-role">IT-специалист</div>
-            <p class="result-before">
-              <strong>До:</strong> нужен был структурированный подход к поиску работы и пониманию подходящих вакансий.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> появилось чёткое понимание подходящих вакансий, навыки презентации опыта и план действий на первые месяцы на новом месте.
-            </p>
-            <div class="result-tag">Запрос: поиск новой работы с ростом дохода</div>
-          </article>
-
-          <!-- Ольга -->
-          <article class="result-card">
-            <div class="result-avatar">О</div>
-            <div class="result-name">Ольга</div>
-            <div class="result-role">дизайнер</div>
-            <p class="result-before">
-              <strong>До:</strong> нужны были тезисные и чёткие рекомендации по развитию карьеры.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> получила конкретные советы по развитию и продвижению в профессии.
-            </p>
-            <div class="result-tag">Запрос: развитие личного бренда</div>
-          </article>
-
-          <!-- Михаил -->
-          <article class="result-card">
-            <div class="result-avatar">М</div>
-            <div class="result-name">Михаил</div>
-            <div class="result-role">финансовый аналитик</div>
-            <p class="result-before">
-              <strong>До:</strong> нужна была чёткая стратегия развития карьеры и понимание рыночных перспектив.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> выстроена стратегия развития, определены сильные стороны и способы их презентации работодателям.
-            </p>
-            <div class="result-tag">Запрос: карьерный тупик</div>
-          </article>
-
-          <!-- Татьяна -->
-          <article class="result-card">
-            <div class="result-avatar">Т</div>
-            <div class="result-name">Татьяна</div>
-            <div class="result-role">HR-менеджер</div>
-            <p class="result-before">
-              <strong>До:</strong> не было конкретного плана действий и понимания направления развития.
-            </p>
-            <p class="result-after">
-              <strong>После:</strong> получен реалистичный план действий с конкретными шагами, появилась уверенность и понимание вектора движения.
-            </p>
-            <div class="result-tag">Запрос: смена компании</div>
-          </article>
+        <div class="section-header">
+          <h2 id="results-title">РЕЗУЛЬТАТЫ КЛИЕНТОВ, КОТОРЫМИ ГОРЖУСЬ</h2>
+          <p>цифры ниже — пример того, каких изменений удаётся добиться за счёт настройки стратегии, резюме и переговоров.</p>
         </div>
+
+        <div class="cases-grid" id="cases-grid" aria-live="polite"></div>
       </div>
     </section>
 
-    <!-- БЛОК 4. ЧТО ВЫ ПОЛУЧИТЕ -->
-    <section id="benefits" class="section section-benefits">
+    <!-- Блок 4. Что вы получите -->
+    <section id="benefits" class="section" aria-labelledby="benefits-title">
       <div class="container">
-        <h2 class="section-title">ЧТО ВЫ ПОЛУЧИТЕ НА КОНСУЛЬТАЦИИ</h2>
+        <div class="section-header">
+          <h2 id="benefits-title">ЧТО ВЫ ПОЛУЧИТЕ НА КОНСУЛЬТАЦИИ</h2>
+        </div>
 
         <div class="benefits-grid">
           <!-- Карточка 1 -->
           <article class="benefit-card">
-            <div class="benefit-card-header">
+            <div class="benefit-image-wrapper">
               <div class="benefit-image">
                 <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/prof_vzglayd.png"
-                     alt="Профессиональный взгляд" />
+                     alt="Иллюстрация профессионального взгляда" loading="lazy" />
               </div>
-              <div class="benefit-number">01</div>
               <div class="benefit-title">ПРОФЕССИОНАЛЬНЫЙ ВЗГЛЯД</div>
             </div>
             <div class="benefit-body">
-              Я смотрю на вашу ситуацию глазами работодателя и руководителя, а не только карьерного консультанта.
-              12 лет в подборе и управлении персоналом, опыт работы в крупных компаниях и собственное HR-агентство.
+              <div class="benefit-number-badge">01</div>
+              <p>
+                Я смотрю на вашу ситуацию глазами работодателя и руководителя, а не только карьерного консультанта.
+                12 лет в подборе и управлении персоналом, опыт работы в крупных компаниях и собственное HR-агентство.
+              </p>
             </div>
           </article>
 
           <!-- Карточка 2 -->
           <article class="benefit-card">
-            <div class="benefit-card-header">
+            <div class="benefit-image-wrapper">
               <div class="benefit-image">
                 <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/Motivachiay.png"
-                     alt="Мотивация и уверенность" />
+                     alt="Иллюстрация мотивации и уверенности" loading="lazy" />
               </div>
-              <div class="benefit-number">02</div>
               <div class="benefit-title">МОТИВАЦИЮ И УВЕРЕННОСТЬ</div>
             </div>
             <div class="benefit-body">
-              Разберём ваши сильные стороны, ценность для бизнеса и реальные карьерные возможности.
-              На выходе — внутренний ориентир, с которым проще принимать решения и вести переговоры о деньгах и роли.
+              <div class="benefit-number-badge">02</div>
+              <p>
+                Разберём ваши сильные стороны, ценность для бизнеса и реальные карьерные возможности.
+                На выходе — внутренний ориентир, с которым проще принимать решения и вести переговоры о деньгах и роли.
+              </p>
             </div>
           </article>
 
           <!-- Карточка 3 -->
           <article class="benefit-card">
-            <div class="benefit-card-header">
+            <div class="benefit-image-wrapper">
               <div class="benefit-image">
                 <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/rezultat.png"
-                     alt="Результаты, а не советы" />
+                     alt="Иллюстрация результата" loading="lazy" />
               </div>
-              <div class="benefit-number">03</div>
               <div class="benefit-title">РЕЗУЛЬТАТЫ, А НЕ СОВЕТЫ</div>
             </div>
             <div class="benefit-body">
-              Вместо общих фраз вы получите конкретный план действий: что делать в первую очередь.
-              Мы разберём, как обновить резюме и профиль и как вести себя на собеседованиях.
+              <div class="benefit-number-badge">03</div>
+              <p>
+                Вместо общих фраз вы получите конкретный план действий: что делать в первую очередь.
+                Мы разберём, как обновить резюме и профиль и как вести себя на собеседованиях.
+              </p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 5. КАК ПРОХОДИТ КОНСУЛЬТАЦИЯ -->
-    <section id="process" class="section section-process">
+    <!-- Блок 5. Как проходит консультация -->
+    <section id="process" class="section section-alt" aria-labelledby="process-title">
       <div class="container">
-        <h2 class="section-title">КАК ПРОХОДИТ КОНСУЛЬТАЦИЯ</h2>
+        <div class="section-header">
+          <h2 id="process-title">КАК ПРОХОДИТ КОНСУЛЬТАЦИЯ</h2>
+        </div>
 
-        <div class="process-grid">
+        <div class="process-steps" aria-label="Шаги консультации">
           <!-- Шаг 1 -->
           <article class="process-card">
             <div class="process-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="9" r="3"
-                        stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="17" cy="7" r="2"
-                        stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M4 19C4.5 16 6 14 8 14C10 14 11.5 16 12 19"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.5 13.5L19 18"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Иконка знакомства: два силуэта -->
+                <circle cx="8" cy="9" r="3"></circle>
+                <circle cx="16" cy="9" r="3"></circle>
+                <path d="M4 18c0-2.2 1.8-4 4-4s4 1.8 4 4"></path>
+                <path d="M12 18c0-2.2 1.8-4 4-4s4 1.8 4 4"></path>
               </svg>
             </div>
-            <div class="process-title">ЗНАКОМСТВО И УТОЧНЕНИЕ ЗАПРОСА</div>
-            <div class="process-text">
+            <h3>ЗНАКОМСТВО И УТОЧНЕНИЕ ЗАПРОСА</h3>
+            <p>
               Коротко разбираем вашу ситуацию, фиксируем цели и ожидаемый результат встречи.
-            </div>
+            </p>
             <div class="process-number">01</div>
           </article>
 
           <!-- Шаг 2 -->
           <article class="process-card">
             <div class="process-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="4" width="16" height="14" rx="2"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 8H16M8 11H14M8 14H11"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Иконка глубокого разбора: лупа и список -->
+                <rect x="4" y="5" width="9" height="12" rx="1"></rect>
+                <line x1="6" y1="8" x2="11" y2="8"></line>
+                <line x1="6" y1="11" x2="10" y2="11"></line>
+                <circle cx="16" cy="15" r="3"></circle>
+                <line x1="18.2" y1="17.2" x2="20" y2="19"></line>
               </svg>
             </div>
-            <div class="process-title">ГЛУБОКИЙ РАЗБОР ОПЫТА И ОЖИДАНИЙ</div>
-            <div class="process-text">
-              По шагам разбираем карьерный путь, сильные стороны, ограничения, предпочтения по форматам работы и доходу.
-            </div>
+            <h3>ГЛУБОКИЙ РАЗБОР ОПЫТА И ОЖИДАНИЙ</h3>
+            <p>
+              По шагам разбираем карьерный путь, сильные стороны, ограничения,
+              предпочтения по форматам работы и доходу.
+            </p>
             <div class="process-number">02</div>
           </article>
 
           <!-- Шаг 3 -->
           <article class="process-card">
             <div class="process-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 18L10 6L14 13L20 7"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M4 10H7"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Иконка стратегии: карта/маршрут -->
+                <path d="M4 6l5-2 6 2 5-2v14l-5 2-6-2-5 2z"></path>
+                <path d="M9 4v14"></path>
+                <path d="M15 6v14"></path>
               </svg>
             </div>
-            <div class="process-title">ФОРМИРОВАНИЕ СТРАТЕГИИ И РЕШЕНИЙ</div>
-            <div class="process-text">
-              Собираем дорожную карту: варианты развития, точки роста, корректировки резюме и профиля, сценарии переговоров.
-            </div>
+            <h3>ФОРМИРОВАНИЕ СТРАТЕГИИ И РЕШЕНИЙ</h3>
+            <p>
+              Собираем дорожную карту: варианты развития, точки роста,
+              корректировки резюме и профиля, сценарии переговоров.
+            </p>
             <div class="process-number">03</div>
           </article>
 
           <!-- Шаг 4 -->
           <article class="process-card">
             <div class="process-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="4" width="16" height="14" rx="2"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M7 9H11M7 12H13M7 15H10"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
-                <path d="M14 15L16 17L19 13"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Иконка фиксации: галочка и документ -->
+                <rect x="4" y="4" width="10" height="14" rx="1"></rect>
+                <path d="M7 9l2 2 3-3"></path>
+                <path d="M17 8v8"></path>
+                <path d="M14 14h6"></path>
               </svg>
             </div>
-            <div class="process-title">ФИКСАЦИЯ ПЛАНА И ДОГОВОРЁННОСТЕЙ</div>
-            <div class="process-text">
-              Подводим итоги, фиксируем конкретные шаги и дедлайны, определяем, какие материалы вы получаете после встречи.
-            </div>
+            <h3>ФИКСАЦИЯ ПЛАНА И ДОГОВОРЁННОСТЕЙ</h3>
+            <p>
+              Подводим итоги, фиксируем конкретные шаги и дедлайны, определяем,
+              какие материалы вы получаете после встречи.
+            </p>
             <div class="process-number">04</div>
           </article>
         </div>
 
         <div class="process-support">
-          <div class="process-support-title">ПОДДЕРЖКА ПОСЛЕ КОНСУЛЬТАЦИИ</div>
-          <div class="process-support-text">
-            В течение двух недель вы можете задать уточняющие вопросы в чате и скорректировать действия по результатам первых шагов.
-          </div>
+          <h3>ПОДДЕРЖКА ПОСЛЕ КОНСУЛЬТАЦИИ</h3>
+          <p>
+            В течение двух недель вы можете задать уточняющие вопросы в чате
+            и скорректировать действия по результатам первых шагов.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 6. ОБО МНЕ -->
-    <section id="about" class="section section-about">
+    <!-- Блок 6. Обо мне -->
+    <section id="about" class="section" aria-labelledby="about-title">
       <div class="container">
-        <div class="about-inner">
-          <div class="about-text">
-            <div class="about-badge">
-              <span class="about-badge-dot"></span>
-              <span>КАРЬЕРНЫЙ ЭКСПЕРТ</span>
+        <div class="about-section-inner">
+          <div>
+            <div class="about-label-row">
+              <div class="about-label-marker"></div>
+              <div class="about-label-text">КАРЬЕРНЫЙ ЭКСПЕРТ</div>
             </div>
-            <h2 class="about-title">ОБО МНЕ</h2>
+            <h2 id="about-title">ОБО МНЕ</h2>
+
             <div class="about-facts">
               <div class="about-fact">
                 <div class="about-fact-number">12+</div>
-                <div class="about-fact-text">лет в HR и карьерном консультировании.</div>
+                <div class="about-fact-label">лет в HR и карьерном консультировании</div>
               </div>
               <div class="about-fact">
                 <div class="about-fact-number">10+</div>
-                <div class="about-fact-text">лет управленческого опыта.</div>
+                <div class="about-fact-label">лет управленческого опыта</div>
               </div>
               <div class="about-fact">
                 <div class="about-fact-number">20+</div>
-                <div class="about-fact-text">реализованных проектов по построению команд.</div>
+                <div class="about-fact-label">реализованных проектов по построению команд</div>
               </div>
             </div>
-            <p class="about-description">
+
+            <p class="about-extra-text">
               Работала в крупных банках и управляла командами, поэтому хорошо понимаю задачи бизнеса и логику работодателя.
             </p>
           </div>
-          <div class="about-photo-wrap">
-            <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/O_bomne.png"
-                 alt="Виктория Мельчакова"
-                 class="about-photo" />
+
+          <div class="about-photo-wrapper">
+            <div class="about-photo-inner">
+              <img src="https://raw.githubusercontent.com/pobedaavr-sys/is-odniki_sait_viki/main/figma/O_bomne.png"
+                   alt="Карьерный эксперт Виктория Мельчакова" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 7. ПОЧЕМУ МНЕ СТОИТ ДОВЕРЯТЬ -->
-    <section id="trust" class="section section-trust">
+    <!-- Блок 7. Почему мне стоит доверять -->
+    <section id="trust" class="section section-alt" aria-labelledby="trust-title">
       <div class="container">
-        <h2 class="section-title">ПОЧЕМУ МНЕ СТОИТ ДОВЕРЯТЬ</h2>
+        <div class="section-header">
+          <h2 id="trust-title">ПОЧЕМУ МНЕ СТОИТ ДОВЕРЯТЬ</h2>
+        </div>
 
         <div class="trust-grid">
           <!-- Карточка 1 -->
           <article class="trust-card">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 4L18 7V11C18 15.4183 15.3137 18.5 12 20C8.68629 18.5 6 15.4183 6 11V7L12 4Z"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- HR опыт: значок офиса -->
+                <rect x="3" y="7" width="18" height="12" rx="1"></rect>
+                <path d="M8 7V5h8v2"></path>
+                <path d="M7 11h2"></path>
+                <path d="M11 11h2"></path>
+                <path d="M15 11h2"></path>
               </svg>
             </div>
-            <div class="trust-title">РЕАЛЬНЫЙ HR-ОПЫТ</div>
-            <div class="trust-text">
+            <h3>РЕАЛЬНЫЙ HR-ОПЫТ</h3>
+            <p>
               За плечами — работа в крупнейших банках и собственное HR-агентство.
               Я много лет нанимала людей и управляла командами, поэтому понимаю, как думают работодатели.
-            </div>
+            </p>
           </article>
 
           <!-- Карточка 2 -->
           <article class="trust-card">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H11L9 20L19 8H13L15 4L5 12Z"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Фокус на результатах: мишень -->
+                <circle cx="12" cy="12" r="7"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 3v2"></path>
+                <path d="M21 12h-2"></path>
+                <path d="M12 21v-2"></path>
+                <path d="M5 12H3"></path>
               </svg>
             </div>
-            <div class="trust-title">ФОКУС НА РЕЗУЛЬТАТЕ</div>
-            <div class="trust-text">
-              Мне важно не просто «поддержать», а помочь вам найти понятный и работающий карьерный маршрут,
+            <h3>ФОКУС НА БИЗНЕС-РЕЗУЛЬТАТАХ</h3>
+            <p>
+              Мне важно не просто "поддержать", а помочь вам найти понятный и работающий карьерный маршрут,
               который согласуется с рынком и цифрами.
-            </div>
+            </p>
           </article>
 
           <!-- Карточка 3 -->
           <article class="trust-card">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="5" width="16" height="14" rx="2"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 9H16M8 12H14M8 15H12"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Системность: чек-лист -->
+                <rect x="4" y="4" width="10" height="16" rx="1"></rect>
+                <path d="M7 8l2 2 3-3"></path>
+                <path d="M7 13h4"></path>
+                <path d="M7 16h3"></path>
+                <path d="M17 4v16"></path>
               </svg>
             </div>
-            <div class="trust-title">СИСТЕМНЫЙ ПОДХОД</div>
-            <div class="trust-text">
-              Каждая консультация строится по понятному алгоритму: диагностика, разбор опыта, выбор стратегии,
-              план действий. Без мистики и пустых обещаний.
-            </div>
+            <h3>СИСТЕМНОСТЬ И ПРОЗРАЧНОСТЬ</h3>
+            <p>
+              Каждая консультация строится по понятному алгоритму: диагностика, разбор опыта, выбор стратегии, план действий.
+              Без мистики и пустых обещаний.
+            </p>
           </article>
 
           <!-- Карточка 4 -->
           <article class="trust-card">
             <div class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 18H19M5 6H19M8 6C8 8 9.5 10 12 10C14.5 10 16 8 16 6"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 18C8 16 9.5 14 12 14C14.5 14 16 16 16 18"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Данные рынка: график -->
+                <path d="M4 19h16"></path>
+                <path d="M6 16l3-6 4 5 5-9"></path>
+                <circle cx="9" cy="10" r="1"></circle>
+                <circle cx="13" cy="15" r="1"></circle>
+                <circle cx="18" cy="7" r="1"></circle>
               </svg>
             </div>
-            <div class="trust-title">АКТУАЛЬНОСТЬ РЫНКА</div>
-            <div class="trust-text">
-              В работе опираюсь на актуальную статистику по вакансиям и зарплатам, а не только на субъективные ощущения.
-            </div>
+            <h3>ОПОРА НА ДАННЫЕ РЫНКА ТРУДА</h3>
+            <p>
+              В работе опираюсь на актуальную статистику по вакансиям и зарплатам,
+              а не только на субъективные ощущения.
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 8. ДРУГИЕ УСЛУГИ -->
-    <section id="services" class="section section-services">
+    <!-- Блок 8. Другие услуги -->
+    <section id="services" class="section" aria-labelledby="services-title">
       <div class="container">
-        <h2 class="section-title">ДРУГИЕ УСЛУГИ, КОТОРЫЕ БУДУТ ВАМ ИНТЕРЕСНЫ</h2>
+        <div class="section-header">
+          <h2 id="services-title">ДРУГИЕ УСЛУГИ, КОТОРЫЕ БУДУТ ВАМ ИНТЕРЕСНЫ</h2>
+        </div>
 
         <div class="services-grid">
           <!-- Услуга 1 -->
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8" cy="8" r="3"
-                        stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="16" cy="16" r="3"
-                        stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M10.5 9.5L13.5 14.5"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Менторинг: две фигуры и стрелка -->
+                <circle cx="8" cy="9" r="2.5"></circle>
+                <circle cx="16" cy="7" r="2.5"></circle>
+                <path d="M4 17c0-2 1.8-3.5 4-3.5s4 1.5 4 3.5"></path>
+                <path d="M14 17l3-3 3 3"></path>
               </svg>
             </div>
-            <div class="service-title">МЕНТОРИНГ И СОПРОВОЖДЕНИЕ</div>
-            <div class="service-text">
+            <h3>МЕНТОРИНГ И СОПРОВОЖДЕНИЕ</h3>
+            <p>
               Комплексная работа в течение 2–3 месяцев: регулярные созвоны, сопровождение внедрения,
               помощь в переговорах о зарплате и роли.
-            </div>
+            </p>
           </article>
 
           <!-- Услуга 2 -->
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="5" width="16" height="14" rx="2"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 9H16M8 12H13M8 15H11"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Консультация: диалоговые облака -->
+                <path d="M5 6h8a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3H9l-3 3v-3H5a3 3 0 0 1-3-3v0a3 3 0 0 1 3-3z"></path>
+                <path d="M15 10h2a3 3 0 0 1 3 3v0a3 3 0 0 1-3 3h-1l-2 2v-2"></path>
               </svg>
             </div>
-            <div class="service-title">КАРЬЕРНЫЕ КОНСУЛЬТАЦИИ</div>
-            <div class="service-text">
+            <h3>КАРЬЕРНЫЕ КОНСУЛЬТАЦИИ</h3>
+            <p>
               Разовые и пакетные консультации для проработки отдельных запросов: смена сферы, рост внутри компании,
               выход после паузы, переход в управление.
-            </div>
+            </p>
           </article>
 
           <!-- Услуга 3 -->
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <rect x="5" y="4" width="14" height="16" rx="2"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8 8H16M8 11H14M8 14H12"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- Резюме: документ и ручка -->
+                <rect x="4" y="4" width="10" height="16" rx="1"></rect>
+                <path d="M6.5 8h5"></path>
+                <path d="M6.5 11h4"></path>
+                <path d="M6.5 14h3"></path>
+                <path d="M15 15l3-3 2 2-3 3-2 1 1-3z"></path>
               </svg>
             </div>
-            <div class="service-title">ПОМОЩЬ В СОСТАВЛЕНИИ РЕЗЮМЕ</div>
-            <div class="service-text">
-              Разбор текущего резюме, корректировка позиционирования, формулировка достижений,
-              адаптация под конкретные вакансии.
-            </div>
+            <h3>ПОМОЩЬ В СОСТАВЛЕНИИ РЕЗЮМЕ</h3>
+            <p>
+              Разбор текущего резюме, корректировка позиционирования, формулировка достижений, адаптация под конкретные вакансии.
+            </p>
           </article>
 
           <!-- Услуга 4 -->
           <article class="service-card">
             <div class="service-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 18V9L12 6L18 9V18H6Z"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 14H15"
-                      stroke="#391D2C" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24">
+                <!-- План развития: ступеньки и стрелка -->
+                <path d="M5 18v-4h4v-4h4V6h4"></path>
+                <path d="M15 6h4v4"></path>
               </svg>
             </div>
-            <div class="service-title">ПЛАН РАЗВИТИЯ ВНУТРИ КОМПАНИИ</div>
-            <div class="service-text">
+            <h3>ПЛАН РАЗВИТИЯ ВНУТРИ КОМПАНИИ</h3>
+            <p>
               Составление индивидуального плана карьерного роста в текущей организации
               с учётом ваших целей и возможностей компании.
-            </div>
+            </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 9. CTA ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ -->
-    <section id="cta-section" class="section section-cta">
+    <!-- Блок 9. CTA -->
+    <section id="cta-section" class="section cta-section" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-inner">
-          <h2 class="cta-title">ЗАПИСАТЬСЯ НА КОНСУЛЬТАЦИЮ</h2>
-          <p class="cta-text">
-            Индивидуальная онлайн-встреча длительностью 1,5 часа, где мы разберём вашу карьерную ситуацию, составим план действий
-            и проработаем конкретные шаги для достижения целей. После консультации вы получаете 2 недели поддержки
-            для корректировки стратегии.
+          <h2 id="cta-title">Записаться на консультацию</h2>
+          <p>
+            Индивидуальная онлайн-встреча длительностью 1,5 часа, где мы разберём вашу карьерную ситуацию,
+            составим план действий и проработаем конкретные шаги для достижения целей. После консультации вы
+            получаете 2 недели поддержки для корректировки стратегии.
           </p>
 
-          <div class="cta-params">
-            <div>Длительность: 1,5 часа</div>
-            <div>Формат: онлайн-встреча</div>
-            <div>Индивидуальный план действий</div>
-            <div>2 недели сопровождения</div>
-          </div>
-
-          <div class="cta-note">
-            Стоимость консультации уточните при записи по телефону.
-          </div>
-
-          <div class="phone-wrapper">
-            <a class="cta-phone-link" href="tel:+79215925158">+7 (921) 592 51 58</a>
-            <div class="phone-tooltip">
-              Позвоните нам по телефону +7 (921) 592 51 58 и мы договоримся о консультации.
+          <div class="cta-facts" aria-label="Формат консультации">
+            <!-- Факт 1 -->
+            <div class="cta-fact">
+              <div class="cta-fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <!-- Часы -->
+                  <circle cx="12" cy="12" r="7"></circle>
+                  <path d="M12 9v4l2 2"></path>
+                </svg>
+              </div>
+              <div class="cta-fact-text">Длительность: 1,5 часа</div>
             </div>
-            <a href="tel:+79215925158" class="btn btn-primary cta-phone-btn">Хочу на консультацию</a>
+            <!-- Факт 2 -->
+            <div class="cta-fact">
+              <div class="cta-fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <!-- Камера -->
+                  <rect x="4" y="7" width="12" height="10" rx="1"></rect>
+                  <path d="M16 10l4-2v8l-4-2z"></path>
+                  <circle cx="10" cy="12" r="2.5"></circle>
+                </svg>
+              </div>
+              <div class="cta-fact-text">Формат: онлайн-встреча</div>
+            </div>
+            <!-- Факт 3 -->
+            <div class="cta-fact">
+              <div class="cta-fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <!-- Лист -->
+                  <rect x="5" y="4" width="12" height="16" rx="1"></rect>
+                  <path d="M8 8h6"></path>
+                  <path d="M8 11h5"></path>
+                  <path d="M8 14h4"></path>
+                </svg>
+              </div>
+              <div class="cta-fact-text">Индивидуальный план действий</div>
+            </div>
+            <!-- Факт 4 -->
+            <div class="cta-fact">
+              <div class="cta-fact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <!-- Наушники -->
+                  <path d="M6 18V12a6 6 0 0 1 12 0v6"></path>
+                  <rect x="4" y="14" width="3" height="6" rx="1"></rect>
+                  <rect x="17" y="14" width="3" height="6" rx="1"></rect>
+                </svg>
+              </div>
+              <div class="cta-fact-text">2 недели сопровождения</div>
+            </div>
           </div>
+
+          <p>
+            Стоимость консультации уточните при записи по телефону.
+          </p>
+
+          <div class="cta-phone">
+            <a href="tel:+79215925158">+7 (921) 592 51 58</a>
+          </div>
+
+          <a href="tel:+79215925158" class="btn btn-primary js-consultation-btn">Хочу на консультацию</a>
         </div>
       </div>
     </section>
 
-    <!-- БЛОК 10. FAQ -->
-    <section id="faq" class="section section-faq">
+    <!-- Блок 10. FAQ -->
+    <section id="faq" class="section" aria-labelledby="faq-title">
       <div class="container">
-        <h2 class="section-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+        <div class="section-header">
+          <h2 id="faq-title">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
+        </div>
 
         <div class="faq-list">
           <!-- Вопрос 1 -->
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span class="faq-question-text">Сколько длится консультация?</span>
-              <span class="faq-question-icon">+</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Обычно 1,5 часа. Если нужно больше времени, это оговаривается отдельно.
+                <p>Обычно 1,5 часа. Если нужно больше времени, это оговаривается отдельно.</p>
               </div>
             </div>
           </div>
 
           <!-- Вопрос 2 -->
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span class="faq-question-text">Как проходит консультация онлайн?</span>
-              <span class="faq-question-icon">+</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Мы созваниваемся в удобном для вас сервисе (Zoom, Teams или другой платформе).
-                Во время встречи можно демонстрировать экран при разборе резюме, вакансий и рабочих материалов.
+                <p>
+                  Мы созваниваемся в удобном для вас сервисе (Zoom, Teams или другая платформа),
+                  экран можно демонстрировать при разборе резюме и вакансий.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Вопрос 3 -->
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span class="faq-question-text">Буду ли я получать материалы после консультации?</span>
-              <span class="faq-question-icon">+</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Вы получаете план действий и список рекомендаций, а также можете задать уточняющие вопросы
-                в течение двух недель после созвона.
+                <p>
+                  Вы получаете план действий и список рекомендаций, а также можете задать уточняющие вопросы
+                  в течение двух недель после созвона.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Вопрос 4 -->
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span class="faq-question-text">Можно ли оплатить консультацию после созвона?</span>
-              <span class="faq-question-icon">+</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Нет, предварительная оплата обязательна. Это фиксирует время в расписании и гарантирует,
-                что встреча состоится в оговорённый день и час.
+                <p>
+                  Нет, предварительная оплата обязательна. Это фиксирует время в расписании и гарантирует,
+                  что встреча состоится в оговорённый день и час.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Вопрос 5 -->
           <div class="faq-item">
-            <button class="faq-question" type="button" aria-expanded="false">
+            <button class="faq-question" type="button">
               <span class="faq-question-text">Работаете ли вы с клиентами из других городов и стран?</span>
-              <span class="faq-question-icon">+</span>
+              <span class="faq-toggle-icon" aria-hidden="true"></span>
             </button>
             <div class="faq-answer">
               <div class="faq-answer-inner">
-                Да, консультации проходят онлайн, поэтому вы можете подключиться из любого города и часового пояса.
-                Время созвона согласуем отдельно.
+                <p>
+                  Да, консультации проходят онлайн, поэтому вы можете подключиться из любого города и часового пояса.
+                  Время созвона согласуем отдельно.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- БЛОК 11. ФУТЕР -->
-  <footer id="contacts" class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-left">
+  <!-- Футер -->
+  <footer id="contacts" class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-grid">
+        <!-- Левая колонка -->
+        <div>
           <div class="footer-brand-title">Карьерный эксперт Виктория Мельчакова</div>
           <div class="footer-brand-text">
             Индивидуальные карьерные консультации и менторинг.
           </div>
         </div>
-        <div class="footer-right">
-          <div class="footer-phone-label">Телефон</div>
-          <a href="tel:+79215925158" class="footer-phone-link">+7 (921) 592 51 58</a>
-          <div class="footer-docs">
-            <a href="https://disk.yandex.ru/i/q0YqPEJms5wOqA"
-               target="_blank" rel="noopener noreferrer">Политика конфиденциальности</a>
-            <a href="https://disk.yandex.ru/i/gDOwFwSRA4i4Fw"
-               target="_blank" rel="noopener noreferrer">Публичная оферта</a>
+
+        <!-- Навигация -->
+        <div>
+          <div class="footer-title">Навигация</div>
+          <ul class="footer-nav-list">
+            <li><a href="#requests">Запросы</a></li>
+            <li><a href="#results">Результаты</a></li>
+            <li><a href="#about">Обо мне</a></li>
+            <li><a href="#cta-section">Консультация</a></li>
+          </ul>
+        </div>
+
+        <!-- Контакты и документы -->
+        <div>
+          <div class="footer-title">Контакты</div>
+          <div class="footer-contact-phone">
+            <a href="tel:+79215925158">+7 (921) 592 51 58</a>
           </div>
+
+          <div class="footer-title" style="margin-top: 10px;">Документы</div>
+          <ul class="footer-docs-list">
+            <li>
+              <a href="https://disk.yandex.ru/i/q0YqPEJms5wOqA" target="_blank" rel="noopener noreferrer">
+                Политика конфиденциальности
+              </a>
+            </li>
+            <li>
+              <a href="https://disk.yandex.ru/i/gDOwFwSRA4i4Fw" target="_blank" rel="noopener noreferrer">
+                Публичная оферта
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-      <div class="footer-bottom">
-        © 2025 Виктория Мельчакова. Все права защищены.
-      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="current-year"></span> Виктория Мельчакова. Все права защищены.
     </div>
   </footer>
 
+  <!-- Модалка записи на консультацию (для десктопа) -->
+  <div class="modal-overlay" id="consultation-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">
+      <button class="modal-close" type="button" aria-label="Закрыть">×</button>
+      <h2 id="consultation-modal-title">Записаться на консультацию</h2>
+      <p>
+        Позвоните нам по телефону
+        <a href="tel:+79215925158">+7 (921) 592 51 58</a>
+        и мы договоримся о консультации
+      </p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-outline-light" id="consultation-modal-close-btn">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Плавный скролл к CTA по кнопкам "Записаться"
-      document.querySelectorAll('.js-scroll-to-cta').forEach(function (btn) {
-        btn.addEventListener('click', function (e) {
-          e.preventDefault();
-          var target = document.getElementById('cta-section');
+    // Данные для блока "Самые популярные запросы"
+    const popularRequests = [
+      {
+        id: 1,
+        number: "Запрос 1",
+        iconType: "chat",
+        emoji: "💬",
+        title: "Переговоры о повышении и новой роли",
+        description: "Разбираем ваши задачи, готовим аргументацию, позицию и сценарий разговора с руководителем, чтобы обсуждать повышение спокойно и уверенно.",
+        tag: "Для руководителей и специалистов",
+        cta: "Разберём ваш кейс →"
+      },
+      {
+        id: 2,
+        number: "Запрос 2",
+        iconType: "time",
+        emoji: "⏳",
+        title: "Возвращение на рынок после перерыва",
+        description: "Декрет, релокация или пауза в карьере — собираем опыт в цельную историю, обновляем резюме и профиль, выстраиваем стратегию выхода на рынок без ощущения, что «я выпал(а) из профессии».",
+        tag: "Для тех, кто возвращается в профессию",
+        cta: "Соберём план выхода →"
+      },
+      {
+        id: 3,
+        number: "Запрос 3",
+        iconType: "compass",
+        emoji: "🧭",
+        title: "Переезд и смена рынка / города",
+        description: "Планируете переезд и хотите сохранить уровень дохода и позицию. Подбираем стратегию поиска работы, адаптируем позиционирование и резюме под новый рынок, определяем, где и как себя презентовать.",
+        tag: "Для релокации",
+        cta: "Подберём стратегию поиска →"
+      },
+      {
+        id: 4,
+        number: "Запрос 4",
+        iconType: "money",
+        emoji: "💰",
+        title: "Поиск новой работы с ростом дохода",
+        description: "Хотите выйти на следующий уровень по деньгам и задачам, но отклики не дают нужных результатов. Разберём позиционирование, резюме и стратегию поиска, чтобы получать офферы, а не просто приглашения на интервью.",
+        tag: "Для тех, кто хочет расти",
+        cta: "Составим стратегию поиска →"
+      },
+      {
+        id: 5,
+        number: "Запрос 5",
+        iconType: "change",
+        emoji: "🔄",
+        title: "Смена профессии или сферы",
+        description: "Чувствуете, что в текущей сфере вы упёрлись в потолок. Помогу переложить ваш опыт в новую область, определить стартовую позицию, собрать план перехода и дорожную карту по шагам.",
+        tag: "Для смены сферы",
+        cta: "Построим план перехода →"
+      },
+      {
+        id: 6,
+        number: "Запрос 6",
+        iconType: "block",
+        emoji: "🚧",
+        title: "Карьерный тупик",
+        description: "Работаете много, а ощущение, что стоите на месте: нет ясных перспектив, роста дохода и следующей ступени в карьере. На консультации фиксируем точку А и точку Б, определяем варианты и выбираем реалистичный маршрут.",
+        tag: "Для тех, кто «застрял»",
+        cta: "Найдём путь развития →"
+      },
+      {
+        id: 7,
+        number: "Запрос 7",
+        iconType: "target",
+        emoji: "🎯",
+        title: "Подготовка к важному собеседованию",
+        description: "Впереди интервью мечты или сложная оценочная сессия. Разберём вакансию и компанию, подготовим аргументацию, отработаем сложные вопросы и самопрезентацию, чтобы чувствовать себя уверенно.",
+        tag: "Для ответственных кандидатов",
+        cta: "Подготовим к собеседованию →"
+      },
+      {
+        id: 8,
+        number: "Запрос 8",
+        iconType: "star",
+        emoji: "🌟",
+        title: "Развитие личного бренда",
+        description: "Хотите, чтобы вас находили рекрутеры и предлагали интересные возможности. Помогу разработать стратегию личного бренда, оформить профили в соцсетях и создать контент-план для привлечения карьерных предложений.",
+        tag: "Для амбициозных специалистов",
+        cta: "Разработаем личный бренд →"
+      },
+      {
+        id: 9,
+        number: "Запрос 9",
+        iconType: "team",
+        emoji: "👥",
+        title: "Управление командой и лидерство",
+        description: "Стали руководителем и столкнулись с новыми вызовами: мотивация команды, делегирование, проведение встреч и развитие лидерских качеств. Разберём ваши кейсы и найдём решения для эффективного управления.",
+        tag: "Для новых руководителей",
+        cta: "Прокачаем лидерские навыки →"
+      },
+      {
+        id: 10,
+        number: "Запрос 10",
+        iconType: "resume",
+        emoji: "📝",
+        title: "Оптимизация резюме и профиля",
+        description: "Ваше резюме не конвертирует в отклики или собеседования? Упакуем опыт в сильную структуру, настроим профиль, добавим метрики и результаты, чтобы HR и нанимающие менеджеры сразу видели ценность.",
+        tag: "Для усиления резюме",
+        cta: "Улучшим резюме →"
+      },
+      {
+        id: 11,
+        number: "Запрос 11",
+        iconType: "world",
+        emoji: "🌍",
+        title: "Переезд и работа в другой стране",
+        description: "Если планируете переезд и хотите сохранить уровень дохода, разберём, как адаптировать резюме под международный рынок, где искать вакансии и как презентовать свой опыт зарубежным рекрутёрам.",
+        tag: "Для международного рынка",
+        cta: "Подготовим стратегию →"
+      }
+    ];
+
+    // Данные для блока "Результаты клиентов"
+    const cases = [
+      {
+        name: "Анна, руководитель отдела продаж",
+        before: "2 года на одной позиции, без предложений по рынку.",
+        after: "Оффер руководителя направления в другой компании, +35% к доходу за 4 месяца.",
+        tag: "Запрос: повышение"
+      },
+      {
+        name: "Игорь, ведущий инженер",
+        before: "8 лет в одной компании, узкий профиль, страх менять сферу.",
+        after: "Переход в международный проектный офис, повышение грейда и рост дохода на 40%.",
+        tag: "Запрос: смена компании"
+      },
+      {
+        name: "Мария, маркетолог после декрета",
+        before: "Перерыв 3 года, нерелевантное резюме, откликов почти нет.",
+        after: "3 оффера за месяц, выход в продуктовую компанию с гибридным форматом работы.",
+        tag: "Запрос: возврат на рынок"
+      },
+      {
+        name: "Елена, специалист по закупкам",
+        before: "Ощущение полного тупика, разные варианты резюме не работали, откликов почти не было.",
+        after: "За одну консультацию разобрали опыт, сформулировали сильные стороны и создали понятный план поиска. Выход на новую работу с зарплатой выше прежней за 1 месяц.",
+        tag: "Запрос: карьерный тупик"
+      },
+      {
+        name: "Дарья, менеджер проектов",
+        before: "Больше года хотела сменить сферу, казалось, что придётся начинать с нуля.",
+        after: "Помогли перенести навыки в новую область, упаковать опыт и определить реальные позиции для откликов. Работа в новой сфере с более мягким переходом, чем ожидалось.",
+        tag: "Запрос: смена профессии или сферы"
+      },
+      {
+        name: "Сергей, руководитель отдела",
+        before: "Не понимал, как дальше развиваться: расти внутри компании или искать новые возможности.",
+        after: "Разложили цели и риски, посчитали варианты по деньгам и этапам. Согласовал внутри компании новую роль и повышение.",
+        tag: "Запрос: повышение"
+      },
+      {
+        name: "Александр, IT-специалист",
+        before: "Нужен был структурированный подход к поиску работы и пониманию подходящих вакансий.",
+        after: "Появилось чёткое понимание подходящих вакансий, навыки презентации опыта и план действий на первые месяцы на новом месте.",
+        tag: "Запрос: поиск новой работы с ростом дохода"
+      },
+      {
+        name: "Ольга, дизайнер",
+        before: "Нужны были тезисные и чёткие рекомендации по развитию карьеры.",
+        after: "Получила конкретные советы по развитию и продвижению в профессии.",
+        tag: "Запрос: развитие личного бренда"
+      },
+      {
+        name: "Михаил, финансовый аналитик",
+        before: "Нужна была чёткая стратегия развития карьеры и понимание рыночных перспектив.",
+        after: "Выстроена стратегия развития, определены сильные стороны и способы их презентации работодателям.",
+        tag: "Запрос: карьерный тупик"
+      },
+      {
+        name: "Татьяна, HR-менеджер",
+        before: "Не было конкретного плана действий и понимания направления развития.",
+        after: "Получен реалистичный план действий с конкретными шагами, появилась уверенность и понимание вектора движения.",
+        tag: "Запрос: смена компании"
+      },
+      {
+        name: "Андрей, продакт-менеджер",
+        before: "2 года в продукте на стагнирующем рынке, размытые задачи, непонятный следующий шаг в карьере, отклики на резюме почти не приводили к интервью.",
+        after: "Перепаковали опыт под сильное продуктовое резюме и профиль, определили целевые компании. Получил оффер продакт-менеджера в крупной продуктовой компании с ростом дохода на 45% и понятным планом развития.",
+        tag: "Запрос: развитие в продукте и рост дохода"
+      }
+    ];
+
+    document.addEventListener("DOMContentLoaded", () => {
+      // Год в футере
+      const yearSpan = document.getElementById("current-year");
+      if (yearSpan) {
+        yearSpan.textContent = String(new Date().getFullYear());
+      }
+
+      // Бургер-меню
+      const burger = document.querySelector(".burger");
+      const mainNav = document.querySelector(".main-nav");
+      if (burger && mainNav) {
+        burger.addEventListener("click", () => {
+          mainNav.classList.toggle("open");
+        });
+
+        mainNav.addEventListener("click", (e) => {
+          if (e.target.tagName.toLowerCase() === "a") {
+            mainNav.classList.remove("open");
+          }
+        });
+      }
+
+      // Плавный скролл по якорям
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        const href = link.getAttribute("href");
+        if (!href || href === "#") return;
+        link.addEventListener("click", (e) => {
+          const targetId = href.slice(1);
+          const target = document.getElementById(targetId);
           if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         });
       });
 
-      // Карусель запросов — пролистывание по ширине контейнера
-      var wrapper = document.querySelector('.requests-carousel-track-wrapper');
-      var prev = document.querySelector('.requests-carousel-arrow.prev');
-      var next = document.querySelector('.requests-carousel-arrow.next');
+      // Кнопки консультации: логика звонка/модалки
+      const consultationButtons = document.querySelectorAll(".js-consultation-btn");
+      const modalOverlay = document.getElementById("consultation-modal");
+      const modalClose = document.querySelector(".modal-close");
+      const modalCloseBtn = document.getElementById("consultation-modal-close-btn");
+      let lastFocusedElement = null;
 
-      if (wrapper && prev && next) {
-        prev.addEventListener('click', function () {
-          wrapper.scrollBy({ left: -wrapper.clientWidth * 0.9, behavior: 'smooth' });
+      function isDesktop() {
+        return window.innerWidth >= 1024;
+      }
+
+      function openModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.add("active");
+        modalOverlay.setAttribute("aria-hidden", "false");
+        lastFocusedElement = document.activeElement;
+        const closeButton = modalCloseBtn || modalClose;
+        if (closeButton) {
+          closeButton.focus();
+        }
+      }
+
+      function closeModal() {
+        if (!modalOverlay) return;
+        modalOverlay.classList.remove("active");
+        modalOverlay.setAttribute("aria-hidden", "true");
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+          lastFocusedElement.focus();
+        }
+      }
+
+      consultationButtons.forEach(btn => {
+        // Все кнопки имеют href="tel:+79215925158" в разметке
+        btn.addEventListener("click", (e) => {
+          if (isDesktop()) {
+            e.preventDefault();
+            openModal();
+          } else {
+            // На мобильных — обычный переход по tel:
+            // Ничего не предотвращаем.
+          }
         });
-        next.addEventListener('click', function () {
-          wrapper.scrollBy({ left: wrapper.clientWidth * 0.9, behavior: 'smooth' });
+      });
+
+      if (modalClose) {
+        modalClose.addEventListener("click", () => {
+          closeModal();
+        });
+      }
+      if (modalCloseBtn) {
+        modalCloseBtn.addEventListener("click", () => {
+          closeModal();
+        });
+      }
+      if (modalOverlay) {
+        modalOverlay.addEventListener("click", (e) => {
+          if (e.target === modalOverlay) {
+            closeModal();
+          }
+        });
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains("active")) {
+          closeModal();
+        }
+      });
+
+      // Карусель "Самые популярные запросы"
+      const requestsTrack = document.getElementById("requests-track");
+      const requestsPrev = document.getElementById("requests-prev");
+      const requestsNext = document.getElementById("requests-next");
+      const requestsDots = document.getElementById("requests-dots");
+      let requestCards = [];
+      let currentPage = 0;
+
+      function getVisibleCount() {
+        const width = window.innerWidth;
+        if (width >= 1200) return 3;
+        if (width >= 768) return 2;
+        return 1;
+      }
+
+      function createRequestIconSVG(emojiChar) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("viewBox", "0 0 48 48");
+        const circle = document.createElementNS(svgNS, "circle");
+        circle.setAttribute("cx", "24");
+        circle.setAttribute("cy", "24");
+        circle.setAttribute("r", "21");
+        circle.setAttribute("fill", "none");
+        circle.setAttribute("stroke", "var(--color-icon)");
+        circle.setAttribute("stroke-width", "2");
+        svg.appendChild(circle);
+        const text = document.createElementNS(svgNS, "text");
+        text.setAttribute("x", "24");
+        text.setAttribute("y", "28");
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("font-size", "22");
+        text.textContent = emojiChar;
+        svg.appendChild(text);
+        return svg;
+      }
+
+      function renderRequestsCarousel() {
+        if (!requestsTrack) return;
+        requestsTrack.innerHTML = "";
+        popularRequests.forEach(item => {
+          const card = document.createElement("article");
+          card.className = "request-card card";
+
+          const top = document.createElement("div");
+          top.className = "request-top";
+
+          const numSpan = document.createElement("span");
+          numSpan.textContent = item.number;
+          top.appendChild(numSpan);
+
+          const iconWrapper = document.createElement("div");
+          iconWrapper.className = "request-icon";
+          const iconSvg = createRequestIconSVG(item.emoji);
+          iconSvg.setAttribute("aria-hidden", "true");
+          iconWrapper.appendChild(iconSvg);
+          top.appendChild(iconWrapper);
+
+          const body = document.createElement("div");
+          body.className = "request-body";
+
+          const title = document.createElement("h3");
+          title.textContent = item.title;
+          body.appendChild(title);
+
+          const desc = document.createElement("p");
+          desc.textContent = item.description;
+          body.appendChild(desc);
+
+          const footer = document.createElement("div");
+          footer.className = "request-footer";
+
+          const tag = document.createElement("span");
+          tag.className = "card-tag";
+          tag.textContent = item.tag;
+          footer.appendChild(tag);
+
+          const cta = document.createElement("span");
+          cta.className = "request-cta";
+          cta.textContent = item.cta;
+          footer.appendChild(cta);
+
+          card.appendChild(top);
+          card.appendChild(body);
+          card.appendChild(footer);
+
+          requestsTrack.appendChild(card);
+        });
+        requestCards = Array.from(requestsTrack.children);
+      }
+
+      function renderRequestsDots(visibleCount) {
+        if (!requestsDots) return;
+        requestsDots.innerHTML = "";
+        const pageCount = Math.ceil(popularRequests.length / visibleCount);
+        for (let i = 0; i < pageCount; i++) {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "carousel-dot" + (i === currentPage ? " active" : "");
+          dot.addEventListener("click", () => {
+            currentPage = i;
+            updateRequestsCarousel();
+          });
+          requestsDots.appendChild(dot);
+        }
+      }
+
+      function updateRequestsCarousel() {
+        if (!requestCards.length) return;
+        const visibleCount = getVisibleCount();
+        const pageCount = Math.ceil(popularRequests.length / visibleCount);
+        if (currentPage >= pageCount) {
+          currentPage = pageCount - 1;
+        }
+        if (currentPage < 0) currentPage = 0;
+        const startIndex = currentPage * visibleCount;
+        const endIndex = startIndex + visibleCount;
+
+        requestCards.forEach((card, index) => {
+          if (index >= startIndex && index < endIndex) {
+            card.style.display = "flex";
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        renderRequestsDots(visibleCount);
+      }
+
+      if (requestsTrack) {
+        renderRequestsCarousel();
+        updateRequestsCarousel();
+
+        if (requestsPrev) {
+          requestsPrev.addEventListener("click", () => {
+            const visibleCount = getVisibleCount();
+            const pageCount = Math.ceil(popularRequests.length / visibleCount);
+            currentPage = (currentPage - 1 + pageCount) % pageCount;
+            updateRequestsCarousel();
+          });
+        }
+        if (requestsNext) {
+          requestsNext.addEventListener("click", () => {
+            const visibleCount = getVisibleCount();
+            const pageCount = Math.ceil(popularRequests.length / visibleCount);
+            currentPage = (currentPage + 1) % pageCount;
+            updateRequestsCarousel();
+          });
+        }
+
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            updateRequestsCarousel();
+          }, 150);
         });
       }
 
-      // Аккордеон FAQ
-      document.querySelectorAll('.faq-item').forEach(function (item) {
-        var btn = item.querySelector('.faq-question');
-        var answer = item.querySelector('.faq-answer');
-        var icon = item.querySelector('.faq-question-icon');
+      // Блок "Результаты клиентов"
+      const casesGrid = document.getElementById("cases-grid");
+      if (casesGrid) {
+        cases.forEach(item => {
+          const card = document.createElement("article");
+          card.className = "case-card";
 
-        if (!btn || !answer || !icon) return;
+          const initialCircle = document.createElement("div");
+          initialCircle.className = "case-initial-circle";
+          const trimmedName = item.name.trim();
+          const initial = trimmedName ? trimmedName[0] : "";
+          initialCircle.textContent = initial;
+          card.appendChild(initialCircle);
 
-        btn.addEventListener('click', function () {
-          var isOpen = item.classList.contains('is-open');
-          item.classList.toggle('is-open', !isOpen);
-          btn.setAttribute('aria-expanded', String(!isOpen));
+          const content = document.createElement("div");
+          content.className = "case-content";
 
-          if (!isOpen) {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            icon.textContent = '−';
+          const nameEl = document.createElement("div");
+          nameEl.className = "case-name";
+          nameEl.textContent = item.name;
+          content.appendChild(nameEl);
+
+          const beforeLabel = document.createElement("div");
+          beforeLabel.className = "case-block-label";
+          beforeLabel.textContent = "До:";
+          content.appendChild(beforeLabel);
+
+          const beforeText = document.createElement("div");
+          beforeText.className = "case-text";
+          beforeText.textContent = item.before;
+          content.appendChild(beforeText);
+
+          const afterLabel = document.createElement("div");
+          afterLabel.className = "case-block-label";
+          afterLabel.textContent = "После:";
+          content.appendChild(afterLabel);
+
+          const afterText = document.createElement("div");
+          afterText.className = "case-text";
+          afterText.textContent = item.after;
+          content.appendChild(afterText);
+
+          const tagEl = document.createElement("div");
+          tagEl.className = "case-tag";
+          tagEl.textContent = item.tag;
+          content.appendChild(tagEl);
+
+          card.appendChild(content);
+          casesGrid.appendChild(card);
+        });
+      }
+
+      // FAQ аккордеон
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach(item => {
+        const questionBtn = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+        if (!questionBtn || !answer) return;
+
+        questionBtn.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          if (isOpen) {
+            item.classList.remove("open");
+            answer.style.maxHeight = "0";
           } else {
-            answer.style.maxHeight = '0';
-            icon.textContent = '+';
+            item.classList.add("open");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          }
+        });
+
+        // Инициализация высоты (закрыто)
+        answer.style.maxHeight = "0";
+      });
+
+      // Пересчёт max-height при ресайзе (на случай открытых элементов)
+      window.addEventListener("resize", () => {
+        faqItems.forEach(item => {
+          const answer = item.querySelector(".faq-answer");
+          if (item.classList.contains("open") && answer) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
           }
         });
       });
